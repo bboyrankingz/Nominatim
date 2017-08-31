@@ -189,6 +189,7 @@ if ($aCMDResult['import-data'] || $aCMDResult['all']) {
     $osm2pgsql .= ' -C '.$iCacheMemory;
     $osm2pgsql .= ' -P '.$aDSNInfo['port'];
     $osm2pgsql .= ' -d '.$aDSNInfo['database'].' '.$aCMDResult['osm-file'];
+    $osm2pgsql .= ' --cache-strategy sparse';
     passthruCheckReturn($osm2pgsql);
 
     $oDB =& getDB();
